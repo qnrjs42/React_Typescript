@@ -53,6 +53,13 @@ interface TryInfo {
 const [tries, setTries] = useState<TryInfo[]>([]);
 ```
 
+```typescript
+// 제네릭을 쓰지 않을 경우 값의 타입이 any 또는 null로 타입이 지정된다.
+// 제네릭을 이용하여 수동으로 값의 타입을 지정한다.
+const [result, setResult] = useState<number[]>([]);
+const timeout = useRef<number | null>(null);
+```
+
 ---
 
 interface는 별도의 파일로 분리하자
