@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState, useRef, useCallback } from "react";
 import Try from "./Try";
+import { TryInfo } from "./types";
 
 const getNumbers = () => {
   const candidates = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -13,11 +14,6 @@ const getNumbers = () => {
   }
   return array;
 };
-
-interface TryInfo {
-  try: string;
-  result: string;
-}
 
 // <> === React.Fragment
 const NumberBaseball = () => {

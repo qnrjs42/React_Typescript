@@ -52,3 +52,9 @@ interface TryInfo {
 
 const [tries, setTries] = useState<TryInfo[]>([]);
 ```
+
+---
+
+interface는 별도의 파일로 분리하자
+
+types.ts
