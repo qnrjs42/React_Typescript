@@ -13,8 +13,8 @@ const scores = {
   보: -1,
 } as const;
 
-// rspCoords의 값
-type ImgCoords = typeof rspCoords[keyof typeof rspCoords];
+// type ImgCoords = keyof typeof rspCoords; // rspCoords의 키
+type ImgCoords = typeof rspCoords[keyof typeof rspCoords]; // rspCoords의 값
 const computerChoice = (imgCoords: ImgCoords) => {
   // rspCoords의 키, 강제 형 변환
   return (Object.keys(rspCoords) as ["바위", "가위", "보"]).find((k) => {

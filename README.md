@@ -87,6 +87,12 @@ const rspCoords = {
 ---
 
 ```typescript
+const rspCoords = {
+  바위: "0",
+  가위: "-142px",
+  보: "-284px",
+} as const;
+
 // rspCoords의 값
 type ImgCoords = typeof rspCoords[keyof typeof rspCoords];
 const computerChoice = (imgCoords: ImgCoords) => {
@@ -95,4 +101,8 @@ const computerChoice = (imgCoords: ImgCoords) => {
     return rspCoords[k] === imgCoords;
   })!; //undefined가 없다는 걸 확신할 때 느낌표를 붙힘
 };
+
+type ImgCoords = "0" | "-142px" | "-284px"; // rspCoords 변수 값이 바뀌면 이 코드도 똑같이 바꿔줘야 함
+type ImgCoords = typeof rspCoords[keyof typeof rspCoords]; // rspCoords의 값 (rspCoords 변수 값만 바뀌면 된다, 유동적)
+type ImgCoords = keyof typeof rspCoords; // rspCoords의 키
 ```
