@@ -65,3 +65,34 @@ const timeout = useRef<number | null>(null);
 interface는 별도의 파일로 분리하자
 
 types.ts
+
+---
+
+```typescript
+// string
+const rspCoords = {
+  바위: "0",
+  가위: "-142px",
+  보: "-284px",
+};
+
+// as const가 붙으면 readonly 값 고정
+const rspCoords = {
+  바위: "0",
+  가위: "-142px",
+  보: "-284px",
+} as const;
+```
+
+---
+
+```typescript
+// rspCoords의 값
+type ImgCoords = typeof rspCoords[keyof typeof rspCoords];
+const computerChoice = (imgCoords: ImgCoords) => {
+  // rspCoords의 키, 강제 형 변환
+  return (Object.keys(rspCoords) as ["바위", "가위", "보"]).find((k) => {
+    return rspCoords[k] === imgCoords;
+  })!; //undefined가 없다는 걸 확신할 때 느낌표를 붙힘
+};
+```
