@@ -38,3 +38,17 @@ input이 존재할 때만 포커스
 대체 코드
 if(input) input.focus();
 -> 100% 안전
+
+---
+
+const [tries, setTries] = useState([]);
+-> tries 타입이 never일 경우
+
+```typescript
+interface TryInfo {
+  try: string;
+  result: string;
+}
+
+const [tries, setTries] = useState<TryInfo[]>([]);
+```

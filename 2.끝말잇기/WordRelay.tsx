@@ -23,7 +23,7 @@ const WordRelay = () => {
         if (input) input.focus();
       }
     },
-    [value]
+    [word, value]
   );
 
   const onChange = useCallback<
