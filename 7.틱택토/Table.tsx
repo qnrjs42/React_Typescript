@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Dispatch, FunctionComponent, useMemo } from "react";
+import { FC, Dispatch, FunctionComponent, useMemo } from "react";
 import Tr from "./Tr";
 
 interface Props {
@@ -7,7 +7,7 @@ interface Props {
   dispatch: Dispatch<any>;
   onClick: () => void;
 }
-const Table: FunctionComponent<Props> = ({ tableData, dispatch }) => {
+const Table: FC<Props> = ({ tableData, dispatch }) => {
   return (
     <table>
       {Array(tableData.length)
